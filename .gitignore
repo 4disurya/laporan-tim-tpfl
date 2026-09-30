@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+.firebase/
+firebase-debug.log
+image.jpg
+backend/Code.gs.txt
