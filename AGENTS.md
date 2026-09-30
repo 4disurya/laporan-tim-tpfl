@@ -1,14 +1,14 @@
-# AGENTS.md — montrack
+# AGENTS.md — Laporan Tim TPFL
 
 ## Overview
-Dokumen ini berisi instruksi, protokol keamanan, dan alur kerja wajib untuk AI agent pada proyek **montrack**. 
+Dokumen ini berisi instruksi, protokol keamanan, dan alur kerja wajib untuk AI agent pada proyek **Laporan Tim TPFL**. 
 **Status Repo Saat Ini:** Proyek ini dimulai dari nol (greenfield). Hanya berisi file dokumentasi awal (`prd.md`, `design.md`, `AGENTS.md`). Belum ada implementasi kode.
 
 ## Prerequisites & Local Setup
 Karena proyek ini dibangun dari nol, setup awal sangat krusial agar tidak error:
 1. **Google Apps Script (CLASP)**
    - Wajib login secara lokal: `clasp login`
-   - Inisialisasi awal jika belum ada: `clasp create --type webapp --title "montrack" --rootDir ./backend`
+   - Inisialisasi awal jika belum ada: `clasp create --type webapp --title "Laporan Tim TPFL" --rootDir ./backend`
 2. **Firebase CLI**
    - Wajib login: `firebase login`
    - Inisialisasi hosting: `firebase init hosting` (pilih direktori `public`)
@@ -81,7 +81,7 @@ Karena proyek ini dibangun dari nol, setup awal sangat krusial agar tidak error:
 Struktur folder wajib bersih, ringkas, dan memisahkan static hosting dengan backend CLASP:
 
 ```text
-montrack/
+laporan-tim-tpfl/
 ├── public/
 │   └── index.html          <-- 1 file SPA utuh (HTML, Vue 3, Tailwind, Script)
 ├── backend/
@@ -113,3 +113,5 @@ montrack/
   - `fix`: Perbaikan bug atau galat
   - `chore`: Penyesuaian konfigurasi atau maintenance
   - `docs`: Penambahan atau pembaruan dokumentasi
+
+

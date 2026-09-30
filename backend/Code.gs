@@ -1,12 +1,12 @@
 /**
- * montrack - Backend System
- * Backend untuk Single Page Application (SPA) Laporan Tim TPKNM T2
+ * Laporan Tim TPFL - Backend System
+ * Backend untuk Single Page Application (SPA) Laporan Tim TPFL
  * Menjalankan fungsi via google.script.run dan menyimpan data ke Spreadsheet & Drive.
  */
 
 const APP_PROPERTIES = PropertiesService.getScriptProperties();
 const DATABASE_ID = '1GfQmwCpNdaWpRcCO6fDl-byoErJbktgqUY62lJSIGSY';
-const FOLDER_NAME = 'montrack-uploads';
+const FOLDER_NAME = 'laporan-tim-tpfl-uploads';
 const TIMEZONE = 'Asia/Makassar';
 
 const SHEETS = {
@@ -25,7 +25,7 @@ const SHEETS = {
  */
 function doGet(e) {
   return HtmlService.createHtmlOutputFromFile('Index')
-    .setTitle('Laporan TPKNM T2')
+    .setTitle('Laporan Tim TPFL')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
@@ -768,5 +768,21 @@ function doPost(e) {
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({error: err.toString()}))
       .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// Fungsi opsional untuk me-rename folder Drive lama (Jalankan 1x secara manual di Editor)
+function renameUploadFolder() {
+  const fId = APP_PROPERTIES.getProperty('FOLDER_ID');
+  if (fId) {
+    try {
+      const folder = DriveApp.getFolderById(fId);
+      folder.setName('laporan-tim-tpfl-uploads');
+      Logger.log('Folder berhasil di-rename menjadi laporan-tim-tpfl-uploads');
+    } catch (e) {
+      Logger.log('Gagal me-rename folder: ' + e.toString());
+    }
+  } else {
+    Logger.log('FOLDER_ID belum tersimpan di script properties.');
   }
 }
